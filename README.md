@@ -1,7 +1,7 @@
 # disk_space_visualization
 A visualization of the distribution of disk space within a directory.
 
-Use Jupyter Notebook to run the give week2_project.ipynb file as I used the same.
+Use Jupyter Notebook to run the given week2_project.ipynb file as I used the same.
 
 Software used while making the project was Jupyter Notebook itself.
 
@@ -21,6 +21,4 @@ Some details about my project are as follows:
       b. Parent directory
       c. Exit
 
-6. The steps 3,4 and 5 are repeated unless the user wants to Exit.
-
-      
+6. The current directory is then changed using os.chdir(file_path) and the steps 3,4 and 5 are repeated unless the user wants to Exit.
