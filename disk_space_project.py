@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jun 19 19:04:23 2018
+Created on Sat Jun 30 16:14:38 2018
 
 @author: ABHISHEK
 """
 
 import os
 import pandas as pd
-import cufflinks as cf
+
 from plotly import __version__
 from plotly.offline import download_plotlyjs,init_notebook_mode,plot,iplot
-init_notebook_mode(connected=True)
-cf.go_offline()
+import plotly.graph_objs as go
 
+    
 
 flag=1
 def input_name():
@@ -39,7 +39,6 @@ print('\n')
 
 
 
-
 while(flag==1): 
     
     
@@ -47,7 +46,7 @@ while(flag==1):
     size=[]
 
     for file in (os.listdir()):
-         size.append(os.stat(file).st_size)
+       size.append(os.stat(file).st_size)
 
     print('\n')
     
@@ -56,11 +55,9 @@ while(flag==1):
     d={'DISK_SPACE_IN_MEGA_BYTES': size1,'FILE_NAME': os.listdir(),}
     df = pd.DataFrame(data=d,columns=['FILE_NAME','DISK_SPACE_IN_MEGA_BYTES'])
     
-    
     print("Visualization of the data is as follows :\n\n")
-    df.iplot(kind='bar',x='FILE_NAME',y='DISK_SPACE_IN_MEGA_BYTES',mode='markers',xTitle='FILE_NAME',yTitle='DISK_SPACE_IN_MEGA_BYTES',color='red')
-    
-    
+    iplot([go.Histogram(x=os.listdir(), y=size1)])
+  
     choice=input("\n\nEnter 1 to go to a child directory\nEnter 0 to go to parent directory\nEnter -1 to exit\nEnter your choice = ")
     
     if(choice=='1'):
